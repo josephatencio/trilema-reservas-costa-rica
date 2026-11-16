@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "trilema"
+version = "1.0.0"
+description = "El trilema macroeconómico en Costa Rica y el papel de las reservas internacionales, 1999-2025"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{ name = "Joseph A. Atencio Arias" }, { name = "Marco Oconitrillo González" }]
+dependencies = [
+    "numpy>=1.26",
+    "pandas>=2.2",
+    "scipy>=1.11",
+    "statsmodels>=0.14",
+    "linearmodels>=6.0",
+    "openpyxl>=3.1",
+    "matplotlib>=3.8",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "jupyter>=1.0"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

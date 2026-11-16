@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: "Si usa este trabajo, cítelo como se indica abajo."
+title: "El trilema macroeconómico en Costa Rica y el papel de las reservas internacionales, 1999-2025"
+type: software
+authors:
+  - family-names: "Atencio Arias"
+    given-names: "Joseph A."
+    affiliation: "Universidad de Costa Rica"
+  - family-names: "Oconitrillo González"
+    given-names: "Marco"
+    affiliation: "Universidad de Costa Rica"
+version: 1.0.0
+keywords:
+  - trilema macroeconómico
+  - reservas internacionales
+  - régimen cambiario
+  - inflación
+  - Costa Rica
+preferred-citation:
+  type: report
+  title: "El trilema macroeconómico en Costa Rica y el papel de las reservas internacionales, 1999-2025"
+  authors:
+    - family-names: "Atencio Arias"
+      given-names: "Joseph A."
+    - family-names: "Oconitrillo González"
+      given-names: "Marco"
+  institution:
+    name: "Escuela de Economía, Universidad de Costa Rica"
+  year: 2026
+  month: 5
+  languages:
+    - es
