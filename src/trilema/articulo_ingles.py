@@ -67,7 +67,6 @@ def cuadro_inflacion(pares: dict) -> str:
 
 
 def cifras(res) -> dict[str, str]:
-    """Cada cifra calculada que cita el texto, con el nombre de su macro."""
     t, c = res.part_trilema, res.part_cuadrilema
     valores_p = sorted(m.pvalues["IM_x_RI"] for m in (res.interacciones["IM"],
                                                        res.interacciones_pares["A: EC + IM"],
