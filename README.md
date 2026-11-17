@@ -1,43 +1,41 @@
-# El trilema macroeconómico en Costa Rica y el papel de las reservas internacionales, 1999-2025
+English | [Español](README.es.md)
 
-Joseph A. Atencio Arias y Marco Oconitrillo González, Escuela de Economía, Universidad de Costa Rica, mayo de 2026
+# The Macroeconomic Trilemma in Costa Rica and the Role of International Reserves, 1999-2025
 
-Este repositorio contiene los datos, el código y el artículo de un estudio sobre cómo ha combinado Costa Rica la estabilidad cambiaria, la independencia monetaria y la apertura financiera desde 1999, y qué papel cumplen las reservas internacionales en esa combinación. Los índices trimestrales del trilema se construyen desde los datos crudos y la restricción del trilema, con y sin reservas, se estima para cada régimen cambiario.
+Joseph A. Atencio Arias and Marco Oconitrillo González, School of Economics, University of Costa Rica, May 2026
 
-El artículo está en [`report/trilema_reservas_costa_rica.pdf`](report/trilema_reservas_costa_rica.pdf). El código es el paquete `trilema`, en `src/`, y [`notebooks/analisis.ipynb`](notebooks/analisis.ipynb) recorre los resultados.
+This repository contains the data, code and paper of a study of how Costa Rica has combined exchange rate stability, monetary independence and financial openness since 1999, and what role international reserves play in that combination. The quarterly trilemma indices are built from the raw data, and the trilemma constraint, with and without reserves, is estimated for each exchange rate regime.
 
-## Resultados principales
+The paper is in [`report/trilema_reservas_costa_rica_en.pdf`](report/trilema_reservas_costa_rica_en.pdf), with the Spanish version in [`report/trilema_reservas_costa_rica.pdf`](report/trilema_reservas_costa_rica.pdf). The code is the `trilema` package, in `src/`, and [`notebooks/analisis.ipynb`](notebooks/analisis.ipynb) walks through the results. The code and its comments are in Spanish, and they use the Spanish abbreviations IM, EC, AF and RI for MI, ERS, FO and IR.
 
-Después de 2006 la estabilidad cambiaria concentra el 67.9 % del peso del trilema, y el 78.1 % bajo flotación administrada. Agregar las reservas mejora poco el ajuste (el R² pasa de 0.971 a 0.973), pero su coeficiente es significativo después de 2006, con un peso de 14.8 % en la muestra robusta y de 23.1 % bajo bandas cambiarias. En primeras diferencias, más reservas se asocian con menor inflación, con coeficientes de −6.2 a −6.5 significativos al 5 %, y la apertura comercial es el otro determinante robusto. Son asociaciones y no efectos causales.
+## Main results
 
-| Muestra robusta, 2006Q4 a 2025Q4 | Trilema | Con reservas |
+After 2006, exchange rate stability carries 67.9% of the weight of the trilemma, and 78.1% under the managed float. Adding reserves improves the fit only slightly (the R² goes from 0.971 to 0.973), but their coefficient is significant after 2006, with a weight of 14.8% in the robust sample and 23.1% under the exchange rate bands. In first differences, more reserves are associated with lower inflation, with coefficients from −6.2 to −6.5 significant at 5%, and trade openness is the other robust determinant. These are associations, not causal effects.
+
+| Robust sample, 2006Q4 to 2025Q4 | Trilemma | With reserves |
 |---|---:|---:|
-| Independencia monetaria (IM) | 0.804*** | 0.707*** |
-| Estabilidad cambiaria (EC) | 1.906*** | 1.597*** |
-| Apertura financiera (AF) | 0.653*** | 0.586*** |
-| Reservas internacionales (RI, normalizadas) | | 0.454*** |
-| Observaciones | 77 | 77 |
+| Monetary independence (MI) | 0.804*** | 0.707*** |
+| Exchange rate stability (ERS) | 1.906*** | 1.597*** |
+| Financial openness (FO) | 0.653*** | 0.586*** |
+| International reserves (IR, normalized) | | 0.454*** |
+| Observations | 77 | 77 |
 | R² | 0.971 | 0.973 |
 
-Restricción `2 = b1 IM + b2 EC + b3 AF (+ b4 RI) + e`, sin intercepto y con errores HAC. \*\*\* p < 0.01. En las minidevaluaciones el R² es 1 por construcción, porque EC es casi constante, así que la referencia es la muestra que excluye ese régimen.
+Constraint `2 = b1 MI + b2 ERS + b3 FO (+ b4 IR) + e`, without intercept and with HAC errors. \*\*\* p < 0.01. Under the crawling peg the R² is 1 by construction, because ERS is almost constant, so the reference is the sample that excludes that regime.
 
-![Índices del trilema y reservas internacionales](outputs/figures/indices_trilema.png)
+![Trilemma indices and international reserves](outputs/figures/en/indices_trilema.png)
 
-## Summary in English
+## Data
 
-This repository contains the data, code and paper for a study of how Costa Rica has combined exchange-rate stability, monetary independence and financial openness since 1999, and of the role of international reserves. Quarterly trilemma indices are built from raw data, and the trilemma constraint, with and without reserves, is estimated for each exchange-rate regime. Exchange-rate stability carries about two thirds of the weight after 2006, reserves add a complementary component, and higher reserves are associated with lower inflation. The paper is in Spanish. The tests in `tests/` check that the code reproduces every coefficient in its tables.
+The raw data are in `data/raw/` and come from the Central Bank of Costa Rica, FRED, the IMF and the World Bank. The quarterly dataset used in the analysis is saved in `data/processed/base_trimestral.csv`. [`data/README.md`](data/README.md), in Spanish, describes each file and each variable. The data belong to their sources.
 
-## Datos
+## Requirements
 
-Los datos crudos están en `data/raw/` y vienen del Banco Central de Costa Rica, FRED, el FMI y el Banco Mundial. La base trimestral que usa el análisis se guarda en `data/processed/base_trimestral.csv`. [`data/README.md`](data/README.md) describe cada archivo y cada variable. Los datos pertenecen a sus fuentes.
+The results were produced with Python 3.12.10 on Windows 11 and with the package versions pinned in `requirements.txt`. The full analysis runs in less than a minute and the tests in about ten seconds, with no random numbers.
 
-## Requisitos
+## How to reproduce the results
 
-Los resultados se generaron con Python 3.12.10 en Windows 11 y con las versiones de los paquetes que fija `requirements.txt`. El análisis completo corre en menos de un minuto y las pruebas en unos diez segundos, sin números aleatorios.
-
-## Cómo reproducir los resultados
-
-Desde la carpeta del repositorio se instalan los paquetes y el código del análisis.
+From the repository folder, install the packages and the analysis code.
 
 ```bash
 pip install -r requirements.txt
@@ -47,7 +45,7 @@ pip install -r requirements.txt
 pip install -e . --no-deps
 ```
 
-Luego se corre el análisis y se comprueban las cifras del artículo.
+Then run the analysis and check the numbers in the paper.
 
 ```bash
 python -m trilema
@@ -57,40 +55,41 @@ python -m trilema
 pytest
 ```
 
-`python -m trilema` construye la base desde los datos crudos y guarda las tablas de `outputs/tables/`, las figuras de `outputs/figures/` y las figuras del artículo en PDF, en la carpeta `report/latex/figures/`, que no forma parte del repositorio. `pytest` comprueba que los coeficientes, los errores estándar, los R², las participaciones y las interacciones coincidan con los del artículo, y GitHub Actions repite esas pruebas con cada cambio.
+`python -m trilema` builds the dataset from the raw data and saves the tables in `outputs/tables/`, the figures in `outputs/figures/` and the paper's figures as PDF, in the folder `report/latex/figures/`, which is not part of the repository. It also draws the same figures with English labels, in the `en/` subfolders, and writes the tables and numbers of the English version of the paper in `report/latex/en/tables/`. `pytest` checks that the coefficients, standard errors, R², shares and interactions match those in the paper, and GitHub Actions repeats those tests with every change.
 
-## Contenido
+## Contents
 
-| Ruta | Contenido |
+| Path | Contents |
 |---|---|
-| `data/raw/` | Datos originales |
-| `data/processed/` | Base trimestral construida |
-| `src/trilema/indices.py` | Índices de independencia monetaria, estabilidad cambiaria y apertura financiera |
-| `src/trilema/base.py` | Unión de los índices con las variables macroeconómicas |
-| `src/trilema/modelos.py` | Restricciones, participaciones, regresiones sobre la inflación e interacciones |
-| `src/trilema/diagnosticos.py` | Raíz unitaria, cointegración, causalidad de Granger y quiebres |
-| `src/trilema/figuras.py` | Figuras del artículo |
-| `src/trilema/flujo.py` | Corre todo y guarda los resultados |
-| `tests/` | Comprobación de las cifras del artículo |
-| `notebooks/analisis.ipynb` | Recorrido por los resultados, ya ejecutado |
-| `outputs/` | Tablas en CSV y figuras en PNG |
-| `report/` | El artículo en PDF |
+| `data/raw/` | Original data |
+| `data/processed/` | Quarterly dataset built from them |
+| `src/trilema/indices.py` | Indices of monetary independence, exchange rate stability and financial openness |
+| `src/trilema/base.py` | Merge of the indices with the macroeconomic variables |
+| `src/trilema/modelos.py` | Constraints, shares, inflation regressions and interactions |
+| `src/trilema/diagnosticos.py` | Unit roots, cointegration, Granger causality and breaks |
+| `src/trilema/figuras.py` | Figures of the paper, in Spanish and in English |
+| `src/trilema/articulo_ingles.py` | Tables and numbers of the English version of the paper |
+| `src/trilema/flujo.py` | Runs everything and saves the results |
+| `tests/` | Check of the numbers in the paper |
+| `notebooks/analisis.ipynb` | Walk-through of the results, already executed |
+| `outputs/` | Tables as CSV and figures as PNG, with the English figures in `figures/en/` |
+| `report/` | The paper as PDF, in Spanish and in English |
 
-## Correspondencia entre el artículo y el código
+## Mapping between the paper and the code
 
-| En el artículo | Código | Tabla en `outputs/tables/` |
+| In the paper | Code | Table in `outputs/tables/` |
 |---|---|---|
-| Figura 1, índices del trilema y reservas | `indices.py`, `figuras.panel_indices` | |
-| Cuadro 1, restricción del trilema | `modelos.restriccion` | `cuadro1_trilema` |
-| Cuadro 2, restricción con reservas | `modelos.restriccion` | `cuadro2_cuadrilema` |
-| Figura 2, participación de cada componente | `modelos.participaciones` | `participacion_trilema`, `participacion_cuadrilema` |
-| Cuadro 3, inflación en primeras diferencias | `modelos.pares_de_vertices` | `cuadro3_inflacion_diferencias` |
-| Interacciones con las reservas | `modelos.interacciones`, `modelos.interacciones_por_par` | `interacciones_vertice_reservas`, `interacciones_pares_reservas` |
-| Pruebas de raíz unitaria, Johansen, Granger y quiebres | `diagnosticos.py` | `diagnostico_*` |
-| Figura 3, reservas sobre el PIB, 1960-2024 | `base.reservas_largo_plazo` | `reservas_pib_1960_2024` |
+| Figure 1, trilemma indices and reserves | `indices.py`, `figuras.panel_indices` | |
+| Table 1, trilemma constraint | `modelos.restriccion` | `cuadro1_trilema` |
+| Table 2, constraint with reserves | `modelos.restriccion` | `cuadro2_cuadrilema` |
+| Figure 2, share of each component | `modelos.participaciones` | `participacion_trilema`, `participacion_cuadrilema` |
+| Table 3, inflation in first differences | `modelos.pares_de_vertices` | `cuadro3_inflacion_diferencias` |
+| Interactions with reserves | `modelos.interacciones`, `modelos.interacciones_por_par` | `interacciones_vertice_reservas`, `interacciones_pares_reservas` |
+| Unit root, Johansen, Granger and break tests | `diagnosticos.py` | `diagnostico_*` |
+| Figure 3, reserves to GDP, 1960-2024 | `base.reservas_largo_plazo` | `reservas_pib_1960_2024` |
 
-## Cómo citar
+## How to cite
 
-Atencio Arias, J. A. y Oconitrillo González, M. (2026). *El trilema macroeconómico en Costa Rica y el papel de las reservas internacionales, 1999-2025*. Escuela de Economía, Universidad de Costa Rica.
+Atencio Arias, J. A. and Oconitrillo González, M. (2026). *The macroeconomic trilemma in Costa Rica and the role of international reserves, 1999-2025*. School of Economics, University of Costa Rica.
 
-El archivo `CITATION.cff` tiene los mismos datos, y GitHub los muestra en otros formatos en el botón «Cite this repository».
+The `CITATION.cff` file has the same reference for the Spanish version, and GitHub shows them in other formats under the "Cite this repository" button.

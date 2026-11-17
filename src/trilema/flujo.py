@@ -6,6 +6,7 @@ from pathlib import Path
 
 import pandas as pd
 
+from . import articulo_ingles as ingles
 from . import diagnosticos as dg
 from . import figuras as fg
 from . import modelos as md
@@ -13,6 +14,9 @@ from .base import PROCESADOS, RAIZ, construir_base, reservas_largo_plazo
 
 SALIDAS = RAIZ / "outputs"
 FIGURAS_ARTICULO = RAIZ / "report" / "latex" / "figures"
+# Versión en inglés del artículo, con sus figuras, cuadros y cifras
+FIGURAS_ARTICULO_EN = RAIZ / "report" / "latex" / "en" / "figures"
+CUADROS_ARTICULO_EN = RAIZ / "report" / "latex" / "en" / "tables"
 VARIABLES_PRUEBAS = {
     "Inflación": "inflacion",
     "IM": "IM",
@@ -113,3 +117,15 @@ def guardar(res: Resultados, carpeta: Path = SALIDAS) -> None:
     fg.reservas_largo_plazo(res.reservas_anuales, figs / "reservas_pib_1960_2024.png",
                             FIGURAS_ARTICULO / "reservas_pib_1960_2024.pdf")
     fg.inflacion_y_reservas(res.base, figs / "inflacion_y_reservas.png")
+
+    # Las mismas figuras con los textos en inglés, y los cuadros y las cifras de esa versión
+    en = figs / "en"
+    fg.panel_indices(res.base, en / "indices_trilema.png",
+                     FIGURAS_ARTICULO_EN / "indices_trilema.pdf", idioma="en")
+    fg.participacion(res.part_trilema, res.part_cuadrilema,
+                     en / "participacion_trilema_cuadrilema.png",
+                     FIGURAS_ARTICULO_EN / "participacion_trilema_cuadrilema.pdf", idioma="en")
+    fg.reservas_largo_plazo(res.reservas_anuales, en / "reservas_pib_1960_2024.png",
+                            FIGURAS_ARTICULO_EN / "reservas_pib_1960_2024.pdf", idioma="en")
+    fg.inflacion_y_reservas(res.base, en / "inflacion_y_reservas.png", idioma="en")
+    ingles.escribir_cuadros(res, CUADROS_ARTICULO_EN)
