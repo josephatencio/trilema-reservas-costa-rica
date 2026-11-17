@@ -8,5 +8,5 @@ venv/
 build/
 dist/
 
-# Fuente del artículo en LaTeX; se publica solo el PDF de report/
+# Fuente del artículo en LaTeX
 report/latex/
