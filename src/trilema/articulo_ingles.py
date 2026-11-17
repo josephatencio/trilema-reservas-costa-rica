@@ -1,9 +1,4 @@
-"""Cuadros y cifras de la versión en inglés del artículo.
-
-El artículo en español escribe sus cuadros a mano y tests/ comprueba cada cifra contra este
-código. La versión en inglés los escribe desde los resultados, en report/latex/en/tables, con las
-siglas en inglés, MI, ERS, FO e IR en lugar de IM, EC, AF y RI.
-"""
+"""Cuadros y cifras de la versión en inglés del artículo."""
 from __future__ import annotations
 
 from pathlib import Path
